@@ -6,13 +6,13 @@ numLives = 10           # number of player's lives remaining
 mNumLives = 12          # number of monster's lives remaining
 
 diceOptions = [1, 2, 3, 4, 5, 6]
-#Error-handling for combat strength inputs
+#Error-handling for your combat strength inputs
 try:
     combatStrength = int(input("Enter your combat Strength: "))
 except ValueError:
     print("Error:You must enter an integer.")
     exit()
-
+#Error-handling for monster's combat strength inputs
 try:
     mCombatStrength = int(input("Enter the monster's combat Strength: "))
 except ValueError:
