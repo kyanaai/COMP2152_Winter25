@@ -6,21 +6,56 @@ numLives = 10           # number of player's lives remaining
 mNumLives = 12          # number of monster's lives remaining
 
 diceOptions = [1, 2, 3, 4, 5, 6]
-combatStrength = int(input("Enter your combat Strength: "))
-mCombatStrength = int(input("Enter the monster's combat Strength: "))
+#Error-handling for combat strength inputs
+try:
+    combatStrength = int(input("Enter your combat Strength: "))
+except ValueError:
+    print("Error:You must enter an integer.")
+    exit()
 
+try:
+    mCombatStrength = int(input("Enter the monster's combat Strength: "))
+except ValueError:
+    print("Error:You must enter an integer.")
+    exit()
+
+#Roll the dice for player health points
 input("Roll the dice for your health points (Press enter)")
 healthPoints = random.choice(diceOptions)
 print("You rolled " + str(healthPoints) + " health points")
 
+#Roll the dice for the monster's health points
 input("Roll the dice for the monster's health points (Press enter)")
 mHealthPoints = random.choice(diceOptions)
 print("You rolled " + str(mHealthPoints) + " health points for the monster")
 
+#Roll the dice to see if you find a healing potion
 input("Roll the dice to see if you find a healing potion (Press enter)")
 healingPotion = random.choice([0, 1])
 print("Have you found a healing potion?: " + str(bool(healingPotion)))
 
+#Define weapons
+weapons=["Fist", "Knife", "Club", "Gun", "Bomb", "Nuclear bomb"]
+input("Roll the dice for choosing your weapon (Press enter)")
+weaponRoll=random.choice(diceOptions)
+combatStrength+=weaponRoll
+
+# Use weaponRoll to determine the weapon
+weapon = weapons[weaponRoll - 1]
+print(f"You Rolled : {weaponRoll} Your weapon is: {weapon}")
+
+#Analysis weapon strength
+if weaponRoll <= 2:
+    print("You rolled a weak weapon, friend.")
+elif weaponRoll <= 4:
+    print("Your weapon is meh.")
+else:
+    print("Nice weapon, friend!")
+
+if weapon != "Fist":
+    print("Thank goodness you didn't roll the Fist...")
+
+#analyze the roll
 input("Analyze the roll (Press enter)")
 # Equality operators
 print("--- You are matched in strength: " + str(combatStrength == mCombatStrength))
