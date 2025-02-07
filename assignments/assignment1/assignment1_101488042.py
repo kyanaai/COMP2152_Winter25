@@ -1,6 +1,8 @@
+#a.
 # Kiana Nezafat Yazdi 101488042
 #Assignment: #1
 
+#b.
 #String(str)
 gym_member = "Alex Alliton"
 #float
@@ -10,6 +12,7 @@ highest_reps = 25
 #bool
 membership_active = True
 
+#c.
 #Dictionary
 #key : String , Values: Tuple containing three int for yoga , running , weight lifting
 workout_stats={
@@ -17,14 +20,16 @@ workout_stats={
     "Jamie" : (20, 50, 10) , #yoga : 20 , running :50 , weightlifting: 10
     "Taylor" : (45, 10, 15) } #yoga : 45 , running :10 , weightlifting: 15
 
+#d.
 # Calculate total workout minutes for each friend and add new key-value pairs
 total_workout_minutes = {}
 for friend, activities in workout_stats.items():
     total_minutes = sum(activities)
     total_workout_minutes[f"{friend}_Total"] = total_minutes
 
+print("Total Workout Minutes:", total_workout_minutes)
 
-
+#e.
 # nested list: each row represents a friend, each column an activity
 #List of lists
 workout_list = [
@@ -32,6 +37,7 @@ workout_list = [
 ]
 print("Workout List:" ,workout_list)
 
+#f.
 # Extract and print the minutes for yoga and running for all friends
 yoga_running_minutes = [row[:2] for row in workout_list]
 print("Yoga and Running Minutes for All Friends:", yoga_running_minutes)
@@ -40,13 +46,14 @@ print("Yoga and Running Minutes for All Friends:", yoga_running_minutes)
 weightlifting_last_two = [row[2] for row in workout_list[-2:]]
 print("Weightlifting Minutes for Last Two Friends:", weightlifting_last_two)
 
-
+#g.
 # Use an if-statement within a loop to check for total workout minutes >= 120
 for friend, total in total_workout_minutes.items():
     if total >= 120:
         friend_name = friend.replace("_Total", "")
         print(f"Great job staying active, {friend_name}!")
 
+#h.
 # Allow user to input a friend's name and display workout information
 friend_name_input = input("Enter a friend's name to check their workout records: ")
 friend_name_input =friend_name_input.capitalize()
@@ -61,6 +68,7 @@ Weightlifting: {activities[2]}""")
 else:
     print(f"Friend {friend_name_input} not found in the records.")
 
+#i.
 # Find the friend with the highest and lowest total workout minutes
 max_friend = max(total_workout_minutes, key=total_workout_minutes.get)
 min_friend = min(total_workout_minutes, key=total_workout_minutes.get)
